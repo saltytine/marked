@@ -63,8 +63,8 @@ function! s:ClearMark()
   echo "mark cleared"
 endfunction
 
-nnoremap <silent> Z :call <SID>JumpOrMark()<CR>
-nnoremap <silent> z :call <SID>ClearMark()<CR>
+nnoremap <silent> z :call <SID>JumpOrMark()<CR>
+nnoremap <silent> Z :call <SID>ClearMark()<CR>
 
 augroup markjump
   autocmd!
