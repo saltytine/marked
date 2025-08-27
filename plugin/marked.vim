@@ -63,8 +63,22 @@ function! s:ClearMark()
   echo "mark cleared"
 endfunction
 
+function! s:MarkList()
+  let l:marks = s:LoadMarks()
+  if empty(l:marks)
+    echo "No marks saved"
+    return
+  endif
+  echo "Saved Marks:"
+  for [l:file, l:data] in items(l:marks)
+    echo l:file . " → line " . l:data.line
+  endfor
+endfunction
+
 nnoremap <silent> z :call <SID>JumpOrMark()<CR>
 nnoremap <silent> Z :call <SID>ClearMark()<CR>
+
+command! MarkList call <SID>MarkList()
 
 augroup markjump
   autocmd!
